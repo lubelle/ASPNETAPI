@@ -19,13 +19,13 @@ namespace BasicWebAPI.Controllers
         }
 
         // GET: api/Products/5
-        [HttpGet, Route("{id}")]
+        [HttpGet, Route("{id:int:range(1000,3000)}")]
         public string Get(int id)
         {
             return "product";
         }
 
-        [HttpGet, Route("{id}/orders/{custid}")]
+        [HttpGet, Route("{id:int:range(1000,3000)}/orders/{custid}")]
         public string Get(int id, string custid)
         {
             return "product-orders-" + custid;
@@ -38,13 +38,13 @@ namespace BasicWebAPI.Controllers
         }
 
         // PUT: api/Products/5
-        [HttpPut, Route("{id}")]
+        [HttpPut, Route("{id:int:range(1000,3000)}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
         // DELETE: api/Products/5
-        [HttpDelete, Route("{id}")]
+        [HttpDelete, Route("{id:int:range(1000,3000)}")]
         public void Delete(int id)
         {
         }
