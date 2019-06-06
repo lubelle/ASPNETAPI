@@ -1,7 +1,9 @@
-﻿using System;
+﻿using BasicWebAPI.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Routing;
 
 namespace BasicWebAPI
 {
@@ -12,7 +14,12 @@ namespace BasicWebAPI
             // Web API configuration and services
 
             // Web API routes
-            config.MapHttpAttributeRoutes();
+            // config.MapHttpAttributeRoutes();
+
+            var constrainResolver = new DefaultInlineConstraintResolver();
+            constrainResolver.ConstraintMap.Add("enum", typeof(EnumerationConstraint));
+            config.MapHttpAttributeRoutes(constrainResolver);
+
 
             //config.Routes.MapHttpRoute(
             //    name: "ProdApi",
